@@ -29,12 +29,11 @@ const Grades = mongoose.model('Grades', gradesSchema);
 
 
 async function connect() {
-  try{
+  try {
     await mongoose.connect(uri);
-    console.log("connected to uri");
-  }catch (error)
-  {
-    console.log("error");
+    console.error("connected to uri"); // Use console.error instead of console.log
+  } catch (error) {
+    console.error("error"); // Use console.error instead of console.log
   }
 }
 
