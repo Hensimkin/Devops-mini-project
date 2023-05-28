@@ -4,9 +4,10 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const uri ='mongodb+srv://Hensim977:06061997H@devops.mlysp3s.mongodb.net/?retryWrites=true&w=majority'
+//const uri ='mongodb+srv://Hensim977:06061997H@devops.mlysp3s.mongodb.net/?retryWrites=true&w=majority'
 
 const app = express();
+app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -28,16 +29,6 @@ const gradesSchema = new mongoose.Schema({
 const Grades = mongoose.model('Grades', gradesSchema);
 
 
-async function connect() {
-  try {
-    await mongoose.connect(uri);
-    console.error("connected to uri"); // Use console.error instead of console.log
-  } catch (error) {
-    console.error("error"); // Use console.error instead of console.log
-  }
-}
-
-connect();
 
 app.post('/grades', async (req, res) => {
   const { fullName, grade1, grade2, grade3 } = req.body;

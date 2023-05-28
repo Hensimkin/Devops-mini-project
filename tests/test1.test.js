@@ -1,26 +1,15 @@
-const request = require('supertest');
-const app = require('../server');
-const mongoose = require('mongoose'); // Add this line to import mongoose
+const request = require('supertest')
+const app = require('../server')
 
-describe("test suite 1:", () => {
-  let server;
 
-  beforeAll(async () => {
-    server = await app.listen();
-  });
+describe("test suite 1:",()=>{
+    test("test 1: ",async ()=>{
+        const res=await request(app).get('/')
+        expect(res.statusCode).toEqual(200)
+    })
 
-  afterAll(async () => {
-    await server.close();
-    await mongoose.connection.close();
-  }, 10000); // Increase the timeout value to 10000 milliseconds (10 seconds) or as needed
-
-  test("test 1:", async () => {
-    const res = await request(app).get('/');
-    expect(res.statusCode).toEqual(200);
-  });
-
-  test("test 2:", async () => {
-    const res = await request(app).get('/1234');
-    expect(res.statusCode).toEqual(404);
-  });
-});
+    test("test 2: ",async ()=>{
+        const res=await request(app).get('/1234')
+        expect(res.statusCode).toEqual(404)
+    })
+})
