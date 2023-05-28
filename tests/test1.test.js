@@ -12,7 +12,7 @@ describe("test suite 1:", () => {
   afterAll(async () => {
     await server.close();
     await mongoose.connection.close();
-  });
+  }, 10000); // Increase the timeout value to 10000 milliseconds (10 seconds) or as needed
 
   test("test 1:", async () => {
     const res = await request(app).get('/');
