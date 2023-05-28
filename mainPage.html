@@ -22,7 +22,7 @@
   </form>
 
   <script>
-    document.getElementById("gradeForm").addEventListener("submit", function(event) {
+    document.getElementById("gradeForm").addEventListener("submit", async function(event) {
       event.preventDefault(); // Prevent form submission
 
       // Get form values
@@ -41,7 +41,7 @@
       };
 
       // Send the POST request to the server
-      fetch('/grades', {
+      const response = await fetch('/grades', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
