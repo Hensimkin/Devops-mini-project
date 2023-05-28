@@ -44,10 +44,10 @@ app.post('/grades', async (req, res) => {
 
   try {
     await grades.save();
-    console.log('Grades saved successfully');
+    console.log('Grades saved successfully1');
     res.sendStatus(200);
   } catch (err) {
-    console.error('Error saving grades to MongoDB:', err);
+    console.error('Error saving grades to MongoDB2:', err);
     res.sendStatus(500);
   }
 });

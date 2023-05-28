@@ -18,7 +18,7 @@ async function connect() {
     }
   }
   
-  connect();
+connect();
 
 const port=process.env.PORT || 3000
 
