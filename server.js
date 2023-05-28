@@ -19,7 +19,7 @@ app.post('/grades', (req, res) => {
 
   const data = `Full Name: ${fullName} Grade 1: ${grade1} Grade 2: ${grade2} Grade 3: ${grade3}\n\n`;
 
-  fs.appendFile('C:\\Users\\hanig\\Desktop\\grades.txt', data, (err) => {
+  fs.appendFile('C://Users//hanig//Desktop//grades.txt', data, (err) => {
     if (err) {
       console.error(err);
       res.sendStatus(500);
