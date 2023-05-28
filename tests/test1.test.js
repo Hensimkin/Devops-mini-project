@@ -15,4 +15,11 @@ describe("test suite 1:", () => {
     const res = await request(app).get('/1234');
     expect(res.statusCode).toEqual(404);
   });
+
+  afterAll((done) => {
+    // Close the MongoDB connection
+    mongoose.connection.close(() => {
+      done();
+    });
+  });
 });
