@@ -6,6 +6,9 @@
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
+      background-image: url("https://codetheweb.blog/assets/img/posts/css-advanced-background-images/mountains.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     h1 {
@@ -27,24 +30,37 @@
       width: 100%;
       padding: 5px;
       margin-bottom: 10px;
+      backdrop-filter: blur(2px); /* Apply a slight blur effect */
+      background-color: rgba(255, 255, 255, 0.5); /* Set a semi-transparent background */
     }
 
     input[type="submit"] {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #B22222;
       color: white;
       border: none;
       cursor: pointer;
+      outline: none;
     }
 
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color: #B22222;
     }
 
     .error {
       color: red;
       margin-bottom: 10px;
+    }
+
+    #happySmiley {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    #sadSmiley {
+      text-align: center;
+      font-size: 40px;
     }
   </style>
 </head>
@@ -66,6 +82,9 @@
     <input type="submit" value="Submit">
   </form>
 
+  <div id="happySmiley" style="display: none;">&#128515;</div>
+  <div id="sadSmiley" style="display: none;">&#128557;</div>
+
   <script>
     document.getElementById("gradeForm").addEventListener("submit", async function(event) {
       event.preventDefault(); // Prevent form submission
@@ -75,7 +94,6 @@
       var grade1 = parseInt(document.getElementById("grade1").value);
       var grade2 = parseInt(document.getElementById("grade2").value);
       var grade3 = parseInt(document.getElementById("grade3").value);
-
 
       // Create the request body
       var requestBody = {
@@ -95,9 +113,16 @@
       })
       .then(function(response) {
         if (response.ok) {
-          alert('Grades saved successfully');
+          document.getElementById("happySmiley").style.display = "block"; // Show the happy smiley
+          setTimeout(function() {
+              document.getElementById("happySmiley").style.display = "none";
+            }, 5000); 
+          alert('Grades saved successfully 😄'); // Alert with funny smiley
+          document.getElementById("sadSmiley").style.display = "none"; // Hide the sad smiley
           document.getElementById("gradeForm").reset(); // Reset the form
         } else {
+          document.getElementById("happySmiley").style.display = "none"; // Hide the happy smiley
+          document.getElementById("sadSmiley").style.display = "block"; // Show the sad smiley
           alert('Error occurred while saving grades');
         }
       })
@@ -108,4 +133,6 @@
   </script>
 </body>
 </html>
+
+
 

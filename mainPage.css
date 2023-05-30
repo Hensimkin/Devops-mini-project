@@ -1,0 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-image: url('https://codetheweb.blog/assets/img/posts/css-advanced-background-images/mountains.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Rest of your existing CSS styles */
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Rest of your existing CSS styles */
+  
