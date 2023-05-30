@@ -1,7 +1,6 @@
 /* eslint-disable semi */
-require('dotenv').config();
 const mongoose = require('mongoose');
-const uri = process.env.MONGODB_URI;
+const uri = 'mongodb+srv://Hensim977:06061997H@devops.mlysp3s.mongodb.net/?retryWrites=true&w=majority';
 
 async function connect () {
     try {
