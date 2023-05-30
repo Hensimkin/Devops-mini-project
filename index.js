@@ -37,6 +37,16 @@ app.post('/grades', async (req, res) => {
     }
 });
 
+app.get('/grades2', async (req, res) => {
+    try {
+        const grades = await Grades.find();
+        res.json(grades);
+    } catch (err) {
+        console.error('Error fetching grades from MongoDB:', err);
+        res.sendStatus(500);
+    }
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
