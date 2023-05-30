@@ -1,15 +1,17 @@
+/* eslint-disable arrow-spacing */
+/* eslint-disable no-undef */
+/* eslint-disable quotes */
 const request = require('supertest')
 const app = require('../server')
 
-
-describe("test suite 1:",()=>{
-    test("test 1: ",async ()=>{
-        const res=await request(app).get('/')
+describe("test suite 1:", ()=>{
+    test("test 1: ", async ()=>{
+        const res = await request(app).get('/')
         expect(res.statusCode).toEqual(200)
     })
 
-    test("test 2: ",async ()=>{
-        const res=await request(app).get('/1234')
+    test("test 2: ", async ()=>{
+        const res = await request(app).get('/1234')
         expect(res.statusCode).toEqual(404)
     })
 })
